@@ -26,5 +26,19 @@ fs.readFile('./day1.data.txt', 'utf8', (err, data) => {
 
   const highestElfCalorieTotal = Math.max(...elfCalorieTotals)
 
+  console.log('-- Day 1 --')
+  console.log('-- Part 1 --')
   console.log('Highest elf calorie total: ', highestElfCalorieTotal)
+
+  const sortedElfCalorieTotals = elfCalorieTotals
+    .sort((a, b) => a - b)
+    .reverse()
+
+  const topThreeElfCalorieTotals = sortedElfCalorieTotals.slice(0, 3)
+  const topThreeElfCalorieTotal = topThreeElfCalorieTotals.reduce(
+    (a, b) => a + b,
+    0
+  )
+  console.log('-- Part 2 --')
+  console.log('Top three elf calorie total: ', topThreeElfCalorieTotal)
 })
